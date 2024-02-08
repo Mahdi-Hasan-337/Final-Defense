@@ -13,6 +13,7 @@ class Resource extends Model {
         'module_number',
         'paid_course_id',
         'file',
+        'course_resource_number',
         'resource_number',
         'url',
     ];

@@ -16,7 +16,7 @@ class UserSeeder extends Seeder {
                 'name' => 'Team Campus360',
                 'email' => 'campusdotcrew@gmail.com',
                 'mobile' => '',
-                'password' => Hash::make('Campus360!@12'),
+                'password' => Hash::make('123'),
                 'email_verified_at' => now(),
                 'role' => 'admin',
                 'active_status' => 1,

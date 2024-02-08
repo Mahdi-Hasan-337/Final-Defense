@@ -13,7 +13,12 @@ class PreRecordedVideo extends Model {
         'module_number',
         'paid_course_id',
         'file',
+        'course_video_number',
         'video_number',
         'video_title',
     ];
+
+    public function Module() {
+        return $this->belongsTo(Module::class);
+    }
 }

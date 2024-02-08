@@ -21,4 +21,8 @@ class Paid_course extends Model {
     public function modules() {
         return $this->hasMany(Module::class);
     }
+
+    public function pre_recorded_videos() {
+        return $this->hasMany(PreRecordedVideo::class);
+    }
 }

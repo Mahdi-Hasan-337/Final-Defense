@@ -8,6 +8,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
+            $table->integer('course_resource_number')->nullable;
             $table->integer('resource_number');
             $table->unsignedBigInteger('paid_course_id');
             $table->string('file')->nullable();

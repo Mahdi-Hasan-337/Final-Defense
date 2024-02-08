@@ -23,20 +23,37 @@ Route::get('/blog', [MainController::class, 'BlogPage'])->name('blog');
 Route::get('/job_preparation', [JobController::class, 'index'])->name('job_preparation');
 Route::post('/job_preparation', [PaidCourseController::class, 'storePaidCourse'])->name('job_preparation.store');
 Route::get('/job_preparation/{encryptedId}', [PaidCourseController::class, 'showPaidCourse'])->name('job_preparation.show');
+Route::put('/job_preparation/{encryptedId}', [PaidCourseController::class, 'updatepaidCourse'])->name('job_preparation.update');
 
 /// Module
-Route::get('/job_preparation/{courseName}/{moduleNumber}/{encryptedModuleId}', [ModuleController::class, 'showModule']);
+Route::get('/job_preparation/{courseName}/{moduleNumber}/{encryptedModuleId}', [ModuleController::class, 'showModule'])->name('showModule');
+
+Route::get('/job_preparation/{courseName}/{moduleNumber}/pre-recorded-videos/{encryptedModuleId}', [ModuleController::class, 'showModuleVideo'])->name('showModuleVideo');
+
+Route::get('/job_preparation/{courseName}/{moduleNumber}/pre-resources/{encryptedModuleId}', [ModuleController::class, 'showModuleResource'])->name('showModuleResource');
+
+Route::get('/job_preparation/{courseName}/{moduleNumber}/pre-recorded-videos/{videoNumber}/{videoId}/{encryptedModuleId}', [ModuleController::class, 'viewModuleVideo'])->name('viewModuleVideo');
+
+// Route::get('/job_preparation/{courseName}/{moduleNumber}/resources/{resourceNumber}/{resourceId}/{encryptedModuleId}', [ModuleController::class, 'viewModuleResource'])->name('viewModuleResource');
+
 Route::post('/job_preparation/storeModule/{encryptedId}', [ModuleController::class, 'storeModule'])->name('job_preparation.storeModule');
 Route::post('/job_preparation/storeExtraModule/{encryptedId}', [ModuleController::class, 'storeExtraModule'])->name('job_preparation.storeExtraModule');
+Route::put('/job_preparation/update_module/{encryptedId}', [ModuleController::class, 'updateModule'])->name('job_preparation.update_module');
+Route::put('/job_preparation/update_module_video/{encryptedId}', [ModuleController::class, 'updateModuleVideo'])->name('job_preparation.update_module_video');
+Route::put('/job_preparation/update_module_resource/{encryptedId}', [ModuleController::class, 'updateModuleResource'])->name('job_preparation.update_module_resource');
+Route::post('/update_is_locked/{moduleId}/{encryptedId}', [ModuleController::class, 'lockModule'])->name('update_is_locked');
+Route::delete('/delete_module/{moduleId}/{encryptedId}', [ModuleController::class, 'deleteModule'])->name('delete_module');
 
-/// Upload File
 Route::post('/upload-covered-topics/{module_id}', [ModuleController::class, 'storeTitle'])->name('uploadModuleTitle');
 Route::post('/upload-assignment-topics/{module_id}', [ModuleController::class, 'storeAssignmentTopics'])->name('uploadAssignmentTopics');
 Route::post('/upload-module-video/{module_id}', [ModuleController::class, 'storeVideo'])->name('uploadModuleVideo');
+Route::post('/upload-extra-module-video/{module_id}', [ModuleController::class, 'storeExtraVideo'])->name('uploadExtraModuleVideo');
 Route::post('/upload-module-resource/{module_id}', [ModuleController::class, 'storeResources'])->name('uploadResources');
+Route::post('/upload-extra-module-resource/{module_id}', [ModuleController::class, 'storeExtraResources'])->name('uploadExtraResources');
 
-Route::delete('/delete_module/{moduleId}/{encryptedId}', [ModuleController::class, 'deleteModule'])->name('delete_module');
-Route::post('/update_is_locked/{moduleId}/{encryptedId}', [ModuleController::class, 'updateIsLocked'])->name('update_is_locked');
+Route::delete('/delete_module_video/{moduleId}/{encryptedId}/{videoId}', [ModuleController::class, 'deleteModuleVideo'])->name('delete_module_video');
+
+Route::delete('/delete_module_resource/{moduleId}/{encryptedId}/{resourceId}', [ModuleController::class, 'deleteModuleResource'])->name('delete_module_resource');
 
 Route::post('/upload-file/{module_id}', [ModuleController::class, 'assignment'])->name('uploadFile');
 

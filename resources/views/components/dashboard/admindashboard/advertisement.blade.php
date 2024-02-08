@@ -33,13 +33,11 @@
                     </form>
                 </td>
                 <td class="align-middle">
-                    {{-- <a type="submit" href="{{ url('edit-page/' . $item->id) }}">Update</a> --}}
                     <button type="button" class="btn btn-primary open-modal" data-bs-toggle="modal"
                         data-bs-target="#update-carousel-slide-{{ $item->id }}"
                         data-member-id="{{ $item->id }}">
                         Update
                     </button>
-                    {{-- @include('components.dashboard.admindashboard.update-carousel-slide') --}}
                     @auth
                         @if (auth()->user()->role === 'admin')
                             <div class="modal fade" id="update-carousel-slide-{{ $item->id }}" aria-hidden="true"

@@ -48,6 +48,7 @@
                             <i class="col-3 fa-solid fa-user"></i>
                         </div>
                         <div class="p-2 bd-highlight">My Profile</div>
+                        <div class="ms-auto p-2 bd-highlight">></div>
                     </div>
 
                 </a>
@@ -60,9 +61,7 @@
                         <div class="p-2 bd-highlight">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         </div>
-                        <div class="p-2 bd-highlight">
-                            Logout
-                        </div>
+                        <div class="p-2 bd-highlight">Logout</div>
                         <div class="ms-auto p-2 bd-highlight">
                             >
                         </div>
